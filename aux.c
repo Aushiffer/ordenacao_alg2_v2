@@ -111,7 +111,7 @@ void intercala(int *vetor, size_t a, size_t m, size_t b, u_int64_t *numComps) {
 void preencheAleatorio(int *vetor, size_t tam) {
         int limAleatorio;
 
-        printf("Entre com o valor pseudoaleatório máximo a ser considerado no vetor\n");
+        printf("Entre com o valor pseudoaleatório máximo a ser considerado no vetor: ");
         scanf("%d", &limAleatorio);
 
         for (size_t i = 0; i < tam; i++)
