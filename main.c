@@ -15,9 +15,9 @@ int main() {
         return 1;
     }
 
-    vetor[0] = 1;
+    vetor[0] = 12;
     vetor[1] = 10;
-    vetor[2] = 12;
+    vetor[2] = 1;
 
     getNome(nome);
     printf("Trabalho de %s\n", nome);
