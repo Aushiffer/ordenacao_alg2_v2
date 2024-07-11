@@ -34,9 +34,11 @@ void constroiMaxHeap(int *vetor, size_t tam, u_int64_t *numComps) {
 
 size_t particiona(int *vetor, size_t a, size_t b, u_int64_t *numComps) {
         int pivo = vetor[b - 1];
-        size_t indPivo = 0;
+        size_t indPivo = a;
 
         for (size_t i = a; i < b - 1; i++) {
+                (*numComps)++;
+
                 if (vetor[i] <= pivo) {
                         troca(vetor, i, indPivo);
 

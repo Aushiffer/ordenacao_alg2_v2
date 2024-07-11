@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <sys/types.h>
 #include "aux.h"
+#include "wrapper.h"
 
 #define MAX_CHAR 50
 

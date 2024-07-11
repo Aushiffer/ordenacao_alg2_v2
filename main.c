@@ -5,7 +5,7 @@
 
 int main() {
     char nome[MAX_CHAR];
-    int numComp;
+    int numComps;
 
     int tamVetor = 4;
     int *vetor = (int *)malloc(tamVetor * sizeof(int));
@@ -23,9 +23,9 @@ int main() {
     printf("Trabalho de %s\n", nome);
     printf("GRR %u\n", getGRR());
 
-    numComp = heapSort(vetor, tamVetor);
+    numComps = heapSort(vetor, tamVetor);
 
-    printf("NumComp: %d\n", numComp);
+    printf("NumComp: %d\n", numComps);
     imprimeVetor(vetor, tamVetor);
 
     free(vetor);
