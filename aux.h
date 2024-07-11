@@ -19,4 +19,7 @@ size_t particiona(int *vetor, size_t a, size_t b, u_int64_t *numComps);
 /* Preenche um vetor com valores pseudoaleatórios */
 void preencheAleatorio(int *vetor, size_t tam);
 
+/* Imprime um vetor para a saída padrão */
+void imprimeVetor(int *vetor, size_t tam);
+
 #endif // __AUX__

@@ -1,6 +1,5 @@
 #include <string.h>
 #include "ordenacao.h"
-#include "aux.h"
 
 void getNome(char nome[]) {
     // substitua por seu nome
