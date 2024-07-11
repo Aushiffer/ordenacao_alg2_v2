@@ -2,6 +2,7 @@
 #define __AUX__
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/types.h>
 
 /* Troca vetor[a] com vetor[b] */
@@ -15,6 +16,9 @@ void constroiMaxHeap(int *vetor, size_t tam, u_int64_t *numComps);
 
 /* Particiona um vetor e retorna o índice do pivô selecionado */
 size_t particiona(int *vetor, size_t a, size_t b, u_int64_t *numComps);
+
+/* Intercala dois vetores. Se estiverem ordenados, o resultado um vetor ordenado */
+void intercala(int *vetor, size_t a, size_t m, size_t b, u_int64_t *numComps);
 
 /* Preenche um vetor com valores pseudoaleatórios */
 void preencheAleatorio(int *vetor, size_t tam);

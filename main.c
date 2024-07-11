@@ -8,7 +8,7 @@ int main() {
     int numComp;
 
     int tamVetor = 4;
-    int* vetor = (int*)malloc(tamVetor * sizeof(int));
+    int *vetor = (int *)malloc(tamVetor * sizeof(int));
     if (vetor == NULL) {
         printf("Falha fatal. Impossível alocar memoria.");
         return 1;
@@ -24,7 +24,7 @@ int main() {
     printf("GRR %u\n", getGRR());
 
     numComp = heapSort(vetor, tamVetor);
-    
+
     printf("NumComp: %d\n", numComp);
     imprimeVetor(vetor, tamVetor);
 

@@ -1,5 +1,4 @@
 #include "aux.h"
-#include <stdio.h>
 
 void troca(int *vetor, size_t a, size_t b) {
         int aux = vetor[a];
@@ -31,6 +30,90 @@ void maxHeapify(int *heap, size_t raizSubArvore, size_t tam, u_int64_t *numComps
 void constroiMaxHeap(int *vetor, size_t tam, u_int64_t *numComps) {
         for (ssize_t i = (tam / 2) - 1; i >= 0; i--)
                 maxHeapify(vetor, i, tam, numComps);
+}
+
+size_t particiona(int *vetor, size_t a, size_t b, u_int64_t *numComps) {
+        int pivo = vetor[b - 1];
+        size_t indPivo = 0;
+
+        for (size_t i = a; i < b - 1; i++) {
+                if (vetor[i] <= pivo) {
+                        troca(vetor, i, indPivo);
+
+                        indPivo++;
+                }
+        }
+
+        troca(vetor, indPivo, b - 1);
+
+        return indPivo;
+}
+
+void intercala(int *vetor, size_t a, size_t m, size_t b, u_int64_t *numComps) {
+        size_t tamVetorEsq = m - a + 1;
+        size_t tamVetorDir = b - m;
+        int *E = (int *)malloc(tamVetorEsq * sizeof(int));
+
+        if (!E) {
+                fprintf(stderr, "intercala(): erro de alocacao (E)\n");
+
+                return;
+        }
+
+        int *D = (int *)malloc(tamVetorDir * sizeof(int));
+
+        if (!D) {
+                fprintf(stderr, "intercala(): erro de alocacao (D)\n");
+
+                return;
+        }
+
+        for (size_t i = 0; i < tamVetorEsq; i++)
+                E[i] = vetor[a + i];
+
+        for (size_t j = 0; j < tamVetorDir; j++)
+                D[j] = vetor[m + j + 1];
+
+        size_t i = 0, j = 0, k = a;
+
+        while (i < tamVetorEsq && j < tamVetorDir) {
+                (*numComps)++;
+
+                if (E[i] <= D[j]) {
+                        vetor[k] = E[i];
+                        i++;
+                } else {
+                        vetor[k] = D[j];
+                        j++;
+                }
+
+                k++;
+        }
+
+        while (i < tamVetorEsq) {
+                vetor[k] = E[i];
+                i++;
+                k++;
+        }
+
+        while (j < tamVetorDir) {
+                vetor[k] = D[j];
+                j++;
+                k++;
+        }
+
+        free(E);
+        free(D);
+}
+
+void preencheAleatorio(int *vetor, size_t tam) {
+        int limAleatorio;
+
+        printf("Entre com o valor pseudoaleatório máximo a ser considerado no vetor\n");
+        scanf("%d", &limAleatorio);
+
+        for (size_t i = 0; i < tam; i++)
+                vetor[i] = rand() % limAleatorio;
 }
 
 void imprimeVetor(int *vetor, size_t tam) {
