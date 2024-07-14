@@ -19,7 +19,11 @@ void maxHeapify(int *heap, size_t raizSubArvore, size_t tam, uint64_t *numComps)
         if (filhoDir < tam && heap[filhoDir] > heap[maior])
                 maior = filhoDir;
 
-        (*numComps) += 2;
+        if (filhoEsq < tam)
+                (*numComps)++;
+
+        if (filhoDir < tam)
+                (*numComps)++;
 
         if (maior != raizSubArvore) {
                 troca(heap, maior, raizSubArvore);
