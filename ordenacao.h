@@ -2,7 +2,7 @@
 #define ORDENACAO_H_
 
 #include <stdint.h>
-#include <sys/types.h>
+#include <string.h>
 #include "aux.h"
 #include "wrapper.h"
 

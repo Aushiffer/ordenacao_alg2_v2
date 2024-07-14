@@ -6,7 +6,7 @@ void troca(int *vetor, size_t a, size_t b) {
         vetor[b] = aux;
 }
 
-void maxHeapify(int *heap, size_t raizSubArvore, size_t tam, u_int64_t *numComps) {
+void maxHeapify(int *heap, size_t raizSubArvore, size_t tam, uint64_t *numComps) {
         size_t filhoEsq = (raizSubArvore << 1) + 1;
         size_t filhoDir = (raizSubArvore << 1) + 2;
         size_t maior;
@@ -27,12 +27,12 @@ void maxHeapify(int *heap, size_t raizSubArvore, size_t tam, u_int64_t *numComps
         }
 }
 
-void constroiMaxHeap(int *vetor, size_t tam, u_int64_t *numComps) {
+void constroiMaxHeap(int *vetor, size_t tam, uint64_t *numComps) {
         for (ssize_t i = (tam / 2) - 1; i >= 0; i--)
                 maxHeapify(vetor, i, tam, numComps);
 }
 
-size_t particiona(int *vetor, size_t a, size_t b, u_int64_t *numComps) {
+size_t particiona(int *vetor, size_t a, size_t b, uint64_t *numComps) {
         int pivo = vetor[b - 1];
         size_t indPivo = a;
 
@@ -51,7 +51,7 @@ size_t particiona(int *vetor, size_t a, size_t b, u_int64_t *numComps) {
         return indPivo;
 }
 
-void intercala(int *vetor, size_t a, size_t m, size_t b, u_int64_t *numComps) {
+void intercala(int *vetor, size_t a, size_t m, size_t b, uint64_t *numComps) {
         size_t tamVetorEsq = m - a + 1;
         size_t tamVetorDir = b - m;
         int *E = (int *)malloc(tamVetorEsq * sizeof(int));

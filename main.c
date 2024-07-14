@@ -1,34 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include "ordenacao.h"
 
 int main() {
-    char nome[MAX_CHAR];
-    int numComps;
+	char nome[MAX_CHAR];
+	int numComps;	
+	int tamVetor = 4;
+	int *vetor = (int *)malloc(tamVetor * sizeof(int));
 
-    int tamVetor = 4;
-    int *vetor = (int *)malloc(tamVetor * sizeof(int));
-    if (vetor == NULL) {
-        printf("Falha fatal. Impossível alocar memoria.");
-        return 1;
-    }
+	if (!vetor) {
+	    printf("Falha fatal. Impossível alocar memoria.");
+	    return 1;
+	}	
 
-    vetor[0] = 12;
-    vetor[1] = 10;
-    vetor[2] = 1;
-    vetor[3] = 2;
+	vetor[0] = 12;
+	vetor[1] = 10;
+	vetor[2] = 1;
+	vetor[3] = 2;
 
-    getNome(nome);
-    printf("Trabalho de %s\n", nome);
-    printf("GRR %u\n", getGRR());
+	getNome(nome);
+	printf("Trabalho de %s\n", nome);
+	printf("GRR %u\n", getGRR());	
 
-    numComps = heapSort(vetor, tamVetor);
+	numComps = heapSort(vetor, tamVetor);
 
-    printf("NumComp: %d\n", numComps);
-    imprimeVetor(vetor, tamVetor);
+	printf("NumComp: %d\n", numComps);
+	imprimeVetor(vetor, tamVetor);	
+	free(vetor);
 
-    free(vetor);
-
-    return 0;
+	return 0;
 }
