@@ -8,7 +8,7 @@
 /* Troca vetor[a] com vetor[b] */
 void troca(int *vetor, size_t a, size_t b);
 
-/* 'Max-heapifica' um vetor */
+/* 'Max-heapifica' uma sub-árvore cujos filhos são max-heaps */
 void maxHeapify(int *heap, size_t raizSubArvore, size_t tam, uint64_t *numComps);
 
 /* Constrói uma max-heap a partir de um vetor */

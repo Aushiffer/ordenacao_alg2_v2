@@ -1,30 +1,33 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <time.h>
 #include "ordenacao.h"
 
-int main() {
+int main(void) {
 	char nome[MAX_CHAR];
 	int numComps;	
-	int tamVetor = 4;
+	uint64_t tamVetor;
+
+	srand(time(NULL));
+	printf("Entre com o tamanho do vetor: ");
+	scanf("%lu", &tamVetor);
+	getchar();
+
 	int *vetor = (int *)malloc(tamVetor * sizeof(int));
 
 	if (!vetor) {
-	    printf("Falha fatal. Impossível alocar memoria.");
-	    return 1;
+		printf("Falha fatal. Impossível alocar memoria.");
+		
+		return 1;
 	}	
 
-	vetor[0] = 12;
-	vetor[1] = 10;
-	vetor[2] = 1;
-	vetor[3] = 2;
-
+	preencheAleatorio(vetor, tamVetor);
 	getNome(nome);
 	printf("Trabalho de %s\n", nome);
-	printf("GRR %u\n", getGRR());	
+	printf("GRR %u\n", getGRR());
+	imprimeVetor(vetor, tamVetor);	
 
 	numComps = heapSort(vetor, tamVetor);
 
-	printf("NumComp: %d\n", numComps);
+	printf("NumComps: %d\n", numComps);
 	imprimeVetor(vetor, tamVetor);	
 	free(vetor);
 

@@ -1,7 +1,6 @@
 #ifndef ORDENACAO_H_
 #define ORDENACAO_H_
 
-#include <stdint.h>
 #include <string.h>
 #include "aux.h"
 #include "wrapper.h"
