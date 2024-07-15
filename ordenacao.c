@@ -1,4 +1,6 @@
+#include <stdint.h>
 #include "ordenacao.h"
+#include "aux.h"
 
 void getNome(char nome[]) {
     // substitua por seu nome
@@ -40,16 +42,34 @@ uint64_t heapSort(int vetor[], size_t tam) {
 }
 
 uint64_t mergeSortSR(int vetor[], size_t tam) {
-    vetor[0] = 99;
-    return -1;
+	Pilha *p = criaPilha();
+	uint64_t numComps = 0;
+
+	mergeSortSRWrapper(vetor, 0, tam - 1, p, &numComps);
+	destroiPilha(p);
+
+	return numComps;
 }
 
 uint64_t quickSortSR(int vetor[], size_t tam) {
-    vetor[0] = 99;
-    return -1;
+	Pilha *p = criaPilha();
+	uint64_t numComps = 0;
+
+	quickSortSRWrapper(vetor, 0, tam, p, &numComps);
+	destroiPilha(p);
+
+	return numComps;
 }
 
 uint64_t heapSortSR(int vetor[], size_t tam) {
-    vetor[0] = 99;
-    return -1;
+	uint64_t numComps = 0;
+
+	constroiMaxHeap(vetor, tam, &numComps);
+
+	for (ssize_t i = tam - 1; i > 0; i--) {
+		troca(vetor, 0, i);
+		maxHeapifySR(vetor, 0, i, &numComps);
+	}
+
+	return numComps;
 }

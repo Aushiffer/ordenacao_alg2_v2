@@ -14,7 +14,7 @@ int main(void) {
 	int *vetor = (int *)malloc(tamVetor * sizeof(int));
 
 	if (!vetor) {
-		printf("Falha fatal. Impossível alocar memoria.");
+		fprintf(stderr, "main(): erro de alocacao de memoria\n");
 		
 		return 1;
 	}	
@@ -25,10 +25,10 @@ int main(void) {
 	printf("GRR %u\n", getGRR());
 	imprimeVetor(vetor, tamVetor);	
 
-	numComps = heapSort(vetor, tamVetor);
+	numComps = heapSortSR(vetor, tamVetor);
 
-	printf("NumComps: %d\n", numComps);
 	imprimeVetor(vetor, tamVetor);	
+	printf("NumComps: %d\n", numComps);
 	free(vetor);
 
 	return 0;

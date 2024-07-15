@@ -11,8 +11,14 @@ void troca(int *vetor, size_t a, size_t b);
 /* 'Max-heapifica' uma sub-árvore cujos filhos são max-heaps */
 void maxHeapify(int *heap, size_t raizSubArvore, size_t tam, uint64_t *numComps);
 
+/* Versão iterativa do maxHeapify() */
+void maxHeapifySR(int *heap, size_t raizSubArvore, size_t tam, uint64_t *numComps);
+
 /* Constrói uma max-heap a partir de um vetor */
 void constroiMaxHeap(int *vetor, size_t tam, uint64_t *numComps);
+
+/* Versão iterativa do constroiMaxHeap */
+void constroiMaxHeapSR(int *vetor, size_t ram, uint64_t *numComps);
 
 /* Particiona um vetor e retorna o índice do pivô selecionado */
 size_t particiona(int *vetor, size_t a, size_t b, uint64_t *numComps);

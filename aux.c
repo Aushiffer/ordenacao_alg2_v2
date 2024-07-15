@@ -9,21 +9,21 @@ void troca(int *vetor, size_t a, size_t b) {
 void maxHeapify(int *heap, size_t raizSubArvore, size_t tam, uint64_t *numComps) {
         size_t filhoEsq = (raizSubArvore << 1) + 1;
         size_t filhoDir = (raizSubArvore << 1) + 2;
-        size_t maior;
+        size_t maior = raizSubArvore;
 
-        if (filhoEsq < tam && heap[filhoEsq] > heap[raizSubArvore])
-                maior = filhoEsq;
-        else
-                maior = raizSubArvore;
-
-        if (filhoDir < tam && heap[filhoDir] > heap[maior])
-                maior = filhoDir;
-
-        if (filhoEsq < tam)
+        if (filhoEsq < tam) {
                 (*numComps)++;
 
-        if (filhoDir < tam)
+                if (heap[filhoEsq] > heap[raizSubArvore])
+                        maior = filhoEsq;
+        }
+
+        if (filhoDir < tam) {
                 (*numComps)++;
+
+                if (heap[filhoDir] > heap[maior])
+                        maior = filhoDir;
+        }
 
         if (maior != raizSubArvore) {
                 troca(heap, maior, raizSubArvore);
@@ -31,9 +31,46 @@ void maxHeapify(int *heap, size_t raizSubArvore, size_t tam, uint64_t *numComps)
         }
 }
 
+void maxHeapifySR(int *heap, size_t raizSubArvore, size_t tam, uint64_t *numComps) {
+        size_t raizAtual = raizSubArvore;
+        
+        while (1) {
+                size_t filhoEsq = (raizAtual << 1) + 1;
+                size_t filhoDir = (raizAtual << 1) + 2;
+                size_t maior = raizAtual;
+
+                if (filhoEsq < tam) {
+                        (*numComps)++;
+
+                        if (heap[filhoEsq] > heap[maior])
+                                maior = filhoEsq;
+                }
+
+                if (filhoDir < tam) {
+                        (*numComps)++;
+
+                        if (heap[filhoDir] > heap[maior])
+                                maior = filhoDir;
+                }
+
+                if (maior != raizAtual) {
+                        troca(heap, maior, raizAtual);
+
+                        raizAtual = maior;
+                } else {
+                        break;
+                }
+        }
+}
+
 void constroiMaxHeap(int *vetor, size_t tam, uint64_t *numComps) {
         for (ssize_t i = (tam / 2) - 1; i >= 0; i--)
                 maxHeapify(vetor, i, tam, numComps);
+}
+
+void constroiMaxHeapSR(int *vetor, size_t tam, uint64_t *numComps) {
+        for (ssize_t i = (tam / 2) - 1; i >= 0; i--)
+                maxHeapifySR(vetor, i, tam, numComps);
 }
 
 size_t particiona(int *vetor, size_t a, size_t b, uint64_t *numComps) {

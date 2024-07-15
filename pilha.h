@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct Nodo {
         struct Nodo *prox;
@@ -21,7 +22,7 @@ Nodo *criaNodo(int x);
 Pilha *criaPilha(void);
 
 /* Desempilha o topo da pilha */
-Nodo *desempilha(Pilha *p);
+int desempilha(Pilha *p);
 
 /* Empilha um nodo com um dado 'x' no topo da pilha. Retorna 0 se executar com sucesso e 1 se isso não ocorrer */
 unsigned char empilha(Pilha *p, int x);

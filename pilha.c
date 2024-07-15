@@ -22,8 +22,11 @@ unsigned char pilhaVazia(Pilha *p) {
 unsigned char empilha(Pilha *p, int x) {
         Nodo *novoNodo = criaNodo(x);
 
-        if (!novoNodo)
+        if (!novoNodo) {
+                fprintf(stderr, "empilha(): erro de criacao de nodo, retornando 1\n");
+
                 return 1;
+        }
         
         novoNodo->prox = p->topo;
         p->topo = novoNodo;
@@ -32,15 +35,28 @@ unsigned char empilha(Pilha *p, int x) {
         return 0;
 }
 
-Nodo *desempilha(Pilha *p) {
-        if (pilhaVazia(p))
-                return NULL;
+int desempilha(Pilha *p) {
+        if (pilhaVazia(p)) {
+                fprintf(stderr, "desempilha(): erro de stack underflow, retornando 0\n");
 
-        Nodo *salvaTopo = p->topo;
+                return 0;       
+        }
+        
+        int salvaDado = p->topo->dado;
+        Nodo *aux = p->topo;
         p->topo = p->topo->prox;
         p->tam--;
 
-        return salvaTopo;
+        free(aux);
+
+        return salvaDado;
+}
+
+void destroiPilha(Pilha *p) {
+        while (!pilhaVazia(p))
+                desempilha(p);
+
+        free(p);
 }
 
 Pilha *criaPilha(void) {
