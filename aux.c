@@ -154,6 +154,7 @@ void preencheAleatorio(int *vetor, size_t tam) {
 
         printf("Entre com o valor pseudoaleatório máximo a ser considerado no vetor: ");
         scanf("%d", &limAleatorio);
+        getchar();
 
         for (size_t i = 0; i < tam; i++)
                 vetor[i] = rand() % limAleatorio;

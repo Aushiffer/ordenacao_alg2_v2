@@ -5,11 +5,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/* Nodo da pilha, guarda um inteiro e um ponteiro para o próximo nodo */
 typedef struct Nodo {
         struct Nodo *prox;
         int dado;
 } Nodo;
 
+/* Pilha de inteiros */
 typedef struct {
         Nodo *topo;
         uint64_t tam;
