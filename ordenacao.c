@@ -1,4 +1,4 @@
-#include <stdint.h>
+#include <string.h>
 #include "ordenacao.h"
 #include "aux.h"
 
@@ -46,7 +46,7 @@ uint64_t mergeSortSR(int vetor[], size_t tam) {
 	size_t meio, b;
 	
 	for (size_t i = 1; i <= tam - 1; i *= 2) {
-		for (int a = 0; a < tam - 1; a += i * 2) {
+		for (size_t a = 0; a < tam - 1; a += i * 2) {
 			meio = ((a + i - 1) < tam - 1) ? a + i - 1 : tam - 1;
 			b = ((a + i * 2 - 1) < tam - 1) ? a + i * 2 - 1 : tam - 1;
 
