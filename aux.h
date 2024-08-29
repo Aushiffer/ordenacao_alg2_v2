@@ -18,7 +18,7 @@ void maxHeapifySR(int *heap, size_t raizSubArvore, size_t tam, uint64_t *numComp
 void constroiMaxHeap(int *vetor, size_t tam, uint64_t *numComps);
 
 /* Versão iterativa do constroiMaxHeap */
-void constroiMaxHeapSR(int *vetor, size_t ram, uint64_t *numComps);
+void constroiMaxHeapSR(int *vetor, size_t tam, uint64_t *numComps);
 
 /* Particiona um vetor e retorna o índice do pivô selecionado */
 size_t particiona(int *vetor, size_t a, size_t b, uint64_t *numComps);
@@ -31,5 +31,8 @@ void preencheAleatorio(int *vetor, size_t tam);
 
 /* Imprime um vetor para a saída padrão */
 void imprimeVetor(int *vetor, size_t tam);
+
+/* Retorna 1 se o vetor estiver ordenado e 0 caso contrário */
+unsigned char ordenado(int *vetor, size_t tam);
 
 #endif // __AUX__

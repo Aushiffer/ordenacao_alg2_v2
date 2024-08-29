@@ -23,16 +23,16 @@ unsigned char empilha(Pilha *p, int x) {
         Nodo *novoNodo = criaNodo(x);
 
         if (!novoNodo) {
-                fprintf(stderr, "empilha(): erro de criacao de nodo, retornando 1\n");
+                fprintf(stderr, "empilha(): erro de criacao de nodo, retornando 0\n");
 
-                return 1;
+                return 0;
         }
         
         novoNodo->prox = p->topo;
         p->topo = novoNodo;
         p->tam++;
 
-        return 0;
+        return 1;
 }
 
 int desempilha(Pilha *p) {

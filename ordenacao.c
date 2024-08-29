@@ -41,17 +41,13 @@ uint64_t heapSort(int vetor[], size_t tam) {
 	return numComps;
 }
 
+/* Merge sort iterativo com abordagem bottom-up. Baseado no merge sort do capítulo 2, seção 2 do booksite do livro "Algorithms", de Robert Sedgewick: http://algs4.cs.princeton.edu */
 uint64_t mergeSortSR(int vetor[], size_t tam) {
 	uint64_t numComps = 0;
-	size_t meio, b;
 	
-	for (size_t i = 1; i <= tam - 1; i *= 2) {
-		for (size_t a = 0; a < tam - 1; a += i * 2) {
-			meio = ((a + i - 1) < tam - 1) ? a + i - 1 : tam - 1;
-			b = ((a + i * 2 - 1) < tam - 1) ? a + i * 2 - 1 : tam - 1;
-
-			intercala(vetor, a, meio, b, &numComps);
-		}
+	for (size_t i = 1; i < tam; i = (i << 1)) {
+		for (size_t a = 0; a < tam - i; a += (i << 1))
+			intercala(vetor, a, a + i - 1, ((a + (i << 1) - 1) < tam - 1) ? (a + (i << 1) - 1) : tam - 1, &numComps);
 	}
 
 	return numComps;

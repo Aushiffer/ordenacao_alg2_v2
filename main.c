@@ -59,8 +59,13 @@ int main(void) {
 				if (imprimir == 's' || imprimir == 'S')
 					imprimeVetor(vetor, tamVetor);
 				
+				if (ordenado(vetor, tamVetor))
+					printf("\nVetor ordenado\n");
+				else
+					printf("\nVetor nao ordenado\n");
+
 				free(vetor);
-				printf("\nComparacoes: %lu\n", numComps);
+				printf("Comparacoes: %lu\n", numComps);
 				printf("Pressione ENTER para continuar");
 				getchar();
 
@@ -72,8 +77,13 @@ int main(void) {
 				if (imprimir == 's' || imprimir == 'S')
 					imprimeVetor(vetor, tamVetor);
 				
+				if (ordenado(vetor, tamVetor))
+					printf("\nVetor ordenado\n");
+				else
+					printf("\nVetor nao ordenado\n");
+
 				free(vetor);
-				printf("\nComparacoes: %lu\n", numComps);
+				printf("Comparacoes: %lu\n", numComps);
 				printf("Pressione ENTER para continuar");
 				getchar();
 
@@ -85,8 +95,13 @@ int main(void) {
 				if (imprimir == 's' || imprimir == 'S')
 					imprimeVetor(vetor, tamVetor);
 				
+				if (ordenado(vetor, tamVetor))
+					printf("\nVetor ordenado\n");
+				else
+					printf("\nVetor nao ordenado\n");
+
 				free(vetor);
-				printf("\nComparacoes: %lu\n", numComps);
+				printf("Comparacoes: %lu\n", numComps);
 				printf("Pressione ENTER para continuar");
 				getchar();
 
@@ -98,8 +113,13 @@ int main(void) {
 				if (imprimir == 's' || imprimir == 'S')
 					imprimeVetor(vetor, tamVetor);
 				
+				if (ordenado(vetor, tamVetor))
+					printf("\nVetor ordenado\n");
+				else
+					printf("\nVetor nao ordenado\n");
+
 				free(vetor);
-				printf("\nComparacoes: %lu\n", numComps);
+				printf("Comparacoes: %lu\n", numComps);
 				printf("Pressione ENTER para continuar");
 				getchar();
 
@@ -111,8 +131,13 @@ int main(void) {
 				if (imprimir == 's' || imprimir == 'S')
 					imprimeVetor(vetor, tamVetor);
 				
+				if (ordenado(vetor, tamVetor))
+					printf("\nVetor ordenado\n");
+				else
+					printf("\nVetor nao ordenado\n");
+
 				free(vetor);
-				printf("\nComparacoes: %lu\n", numComps);
+				printf("Comparacoes: %lu\n", numComps);
 				printf("Pressione ENTER para continuar");
 				getchar();
 
@@ -124,8 +149,13 @@ int main(void) {
 				if (imprimir == 's' || imprimir == 'S')
 					imprimeVetor(vetor, tamVetor);
 				
+				if (ordenado(vetor, tamVetor))
+					printf("\nVetor ordenado\n");
+				else
+					printf("\nVetor nao ordenado\n");
+
 				free(vetor);
-				printf("\nComparacoes: %lu\n", numComps);
+				printf("Comparacoes: %lu\n", numComps);
 				printf("Pressione ENTER para continuar");
 				getchar();
 
@@ -136,6 +166,8 @@ int main(void) {
 			
 			default:
 				printf("\nOpcao invalida\n");
+				printf("Pressione ENTER para continuar");
+				getchar();
 
 				break;
 		}

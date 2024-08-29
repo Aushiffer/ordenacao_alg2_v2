@@ -26,7 +26,7 @@ Pilha *criaPilha(void);
 /* Desempilha o topo da pilha */
 int desempilha(Pilha *p);
 
-/* Empilha um nodo com um dado 'x' no topo da pilha. Retorna 0 se executar com sucesso e 1 se isso não ocorrer */
+/* Empilha um nodo com um dado 'x' no topo da pilha. Retorna 1 se executar com sucesso e 0 se isso não ocorrer */
 unsigned char empilha(Pilha *p, int x);
 
 /* Checa se a pilha está vazia */
